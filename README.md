@@ -1,6 +1,7 @@
 # Currency Converter App
 
 This app was created to showcase the skills of the developer and is for demonstration only.
+
 A currency converter app built in Kotlin that follows Clean Architecture and the MVVM pattern. The app allows users to convert between currencies with commission fee calculations, and maintains a wallet with multiple currency balances.
 
 ## Features
