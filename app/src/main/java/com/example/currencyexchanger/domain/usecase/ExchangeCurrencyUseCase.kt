@@ -21,6 +21,11 @@ class ExchangeCurrencyUseCase @Inject constructor(
      * @throws IllegalArgumentException if the account balance is insufficient.
      */
     suspend fun exchange(amount: Double, from: String, to: String): ExchangeResult {
+        // Validate input amount
+        if (amount <= 0) {
+            throw IllegalArgumentException("Amount must be positive")
+        }
+
         // Get the current account and balance for the selling currency.
         val account: Account = accountRepository.getAccount()
         val currentBalance = account.getBalance(from)
