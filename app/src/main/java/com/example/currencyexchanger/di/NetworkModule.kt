@@ -28,10 +28,4 @@ object NetworkModule {
     @Singleton
     fun provideCurrencyExchangeRateAPI(retrofit: Retrofit): CurrencyExchangeRateAPI =
         retrofit.create(CurrencyExchangeRateAPI::class.java)
-
-//    // Optional: Provide ConversionHistoryAPI if needed.
-//    @Provides
-//    @Singleton
-//    fun provideConversionHistoryAPI(retrofit: Retrofit): ConversionHistoryAPI =
-//        retrofit.create(ConversionHistoryAPI::class.java)
 }

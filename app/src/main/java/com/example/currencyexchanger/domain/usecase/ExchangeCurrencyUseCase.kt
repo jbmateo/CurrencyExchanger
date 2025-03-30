@@ -71,8 +71,8 @@ class ExchangeCurrencyUseCase @Inject constructor(
         val exchangeCount = accountRepository.getExchangeCount()
         val commissionFee = commissionFeeCalculator.calculateCommission(amount, exchangeCount)
         val netAmount = (amount - commissionFee) * rate
-        // Return net amount without modifying account balances.
 
+        // Return net amount without modifying account balances.
         return PreviewConversionResult(
             rate = rate,
             commissionFee = commissionFee,

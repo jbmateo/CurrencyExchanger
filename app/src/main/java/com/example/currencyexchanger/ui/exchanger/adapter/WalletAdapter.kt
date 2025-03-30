@@ -20,7 +20,6 @@ class WalletAdapter(private var currencies: List<CurrencyBalance>) :
 
     override fun onBindViewHolder(holder: WalletViewHolder, position: Int) {
         val item = currencies[position]
-        // Bind your data, for example:
         holder.binding.currencyCode.text = item.currency
         holder.binding.currencyAmount.text = item.balance.toCurrencyString()
     }

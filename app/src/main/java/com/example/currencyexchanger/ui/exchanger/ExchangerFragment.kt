@@ -51,7 +51,9 @@ class ExchangerFragment : Fragment() {
 
         binding.submitButton.setOnClickListener {
             getConversionParams()?.let { (amount, sellCurrency, buyCurrency) ->
-                viewModel.exchangeCurrency(amount, sellCurrency, buyCurrency)
+                if(amount > 0) {
+                    viewModel.exchangeCurrency(amount, sellCurrency, buyCurrency)
+                }
             }
         }
 

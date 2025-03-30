@@ -10,6 +10,7 @@ data class ExchangeResult(
     val updatedAccount: Account
 )
 
+//Result of getting exchange preview
 data class PreviewConversionResult(
     val rate: Double,
     val commissionFee: Double,

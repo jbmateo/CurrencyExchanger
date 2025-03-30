@@ -107,7 +107,6 @@ class ConversionViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val preview = exchangeCurrencyUseCase.previewConversion(amount, from, to)
-                Log.d("Preview", preview.toString())
                 _exchangePreview.value = if (preview.netAmount > 0) "+ ${preview.netAmount.toCurrencyString()}" else ""
                 _commissionFee.value = if(preview.commissionFee > 0) "Commission Fee: - ${preview.commissionFee.toCurrencyString()} ${from}" else ""
                 _error.value = ""
