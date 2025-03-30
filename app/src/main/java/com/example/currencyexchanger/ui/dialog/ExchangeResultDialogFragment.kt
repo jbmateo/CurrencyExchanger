@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.currencyexchanger.databinding.DialogExchangeResultBinding
 import com.example.currencyexchanger.domain.model.ExchangeResult
+import java.util.Locale
 
 class ExchangeResultDialogFragment(private val result: ExchangeResult) : DialogFragment() {
     private var _binding: DialogExchangeResultBinding? = null
@@ -29,9 +30,9 @@ class ExchangeResultDialogFragment(private val result: ExchangeResult) : DialogF
     }
 
     private fun formatConversionResult(result: ExchangeResult): CharSequence {
-        val sold = String.format("%.2f %s", result.soldAmount, result.soldCurrency)
-        val bought = String.format("%.2f %s", result.boughtAmount, result.boughtCurrency)
-        val fee = String.format("%.2f %s", result.commissionFee, result.soldCurrency)
+        val sold = String.format(Locale.getDefault(),"%.2f %s", result.soldAmount, result.soldCurrency)
+        val bought = String.format(Locale.getDefault(),"%.2f %s", result.boughtAmount, result.boughtCurrency)
+        val fee = String.format(Locale.getDefault(), "%.2f %s", result.commissionFee, result.soldCurrency)
 
         val resultText = "You have converted <b>$sold</b> to <b>$bought</b>. Commission Fee - <b>$fee</b>."
         return Html.fromHtml(resultText, Html.FROM_HTML_MODE_COMPACT)
