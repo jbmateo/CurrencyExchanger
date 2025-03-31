@@ -4,8 +4,6 @@ import com.example.currencyexchanger.data.repository.AccountRepositoryImpl
 import com.example.currencyexchanger.data.repository.CurrencyExchangeRateRepositoryImpl
 import com.example.currencyexchanger.domain.repository.AccountRepository
 import com.example.currencyexchanger.domain.repository.CurrencyExchangeRateRepository
-import com.example.currencyexchanger.domain.usecase.CommissionFeeCalculator
-import com.example.currencyexchanger.domain.usecase.DefaultCommissionFeeCalculator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,9 +23,5 @@ object DataModule {
     @Provides
     @Singleton
     fun provideAccountRepository(): AccountRepository = AccountRepositoryImpl()
-
-    @Provides
-    @Singleton
-    fun provideCommissionFeeCalculator(): CommissionFeeCalculator = DefaultCommissionFeeCalculator()
 
 }

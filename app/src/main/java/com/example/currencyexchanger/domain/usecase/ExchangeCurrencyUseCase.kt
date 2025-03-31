@@ -34,7 +34,7 @@ class ExchangeCurrencyUseCase @Inject constructor(
         val exchangeCount = accountRepository.getExchangeCount()
 
         // Calculate commission fee.
-        val commissionFee = commissionFeeCalculator.calculateCommission(amount, exchangeCount)
+        val commissionFee = commissionFeeCalculator.calculateCommission(amount, exchangeCount, from)
 
         // Check that the account has enough balance to cover the conversion plus any fee.
         if (currentBalance < (amount + commissionFee)) {
@@ -74,7 +74,7 @@ class ExchangeCurrencyUseCase @Inject constructor(
     suspend fun previewConversion(amount: Double, from: String, to: String): PreviewConversionResult {
         val rate = exchangeRateRepository.getExchangeRate(from, to)
         val exchangeCount = accountRepository.getExchangeCount()
-        val commissionFee = commissionFeeCalculator.calculateCommission(amount, exchangeCount)
+        val commissionFee = commissionFeeCalculator.calculateCommission(amount, exchangeCount, from)
         val netAmount = (amount - commissionFee) * rate
 
         // Return net amount without modifying account balances.
