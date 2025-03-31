@@ -12,17 +12,29 @@
             android:id="@+id/walletCard"
             layout="@layout/my_wallet_card" />
 
+        <TextView
+            android:id="@+id/convertLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:text="Currency Exchange"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/walletCard"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/sellContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/conversion_background"
             android:padding="16dp"
             android:paddingBottom="13dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/walletCard">
+            app:layout_constraintTop_toBottomOf="@id/convertLabel">
 
             <TextView
                 android:id="@+id/sellLabel"
